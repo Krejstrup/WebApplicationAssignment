@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link href="~/css/StyleSheet.css" rel="stylesheet" />
+</head>
+
+
+
+<body>
+    <header>
+        <h2>Select a View.</h2>
+        <nav>
+            <ul>
+                <li>
+                    @Html.ActionLink("Index", "Index", "Home")  <!-- Name of link/ Page/ Controller -->
+
+                </li>
+                <li>
+                    @Html.ActionLink("About", "About", "Home")
+                </li>
+                <li>
+                    <a asp-action="Index" asp-controller="Doctor">Ask Doctor Who</a> <!-- TAGHELPER -->
+                </li>
+                <li>
+                    <a asp-action="Index" asp-controller="Guess">Guess a number</a>
+                </li>
+                <li>
+                    <a asp-action="Projects" asp-controller="Home">My GitHub Projects</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <hr />
+
+    <div>
+        @RenderBody()  <!-- THis is where the actual pages are going to load. BEWARE: _ViewStart will be shown right over this line-->
+    </div>
+
+    <hr />
+    <footer>
+        <h3>Footer part of the page.</h3>
+        <p>&copy;Richard @DateTime.Now.ToString("dd-MM-yyyy") </p>
+    </footer>
+</body>
+
+
+</html>

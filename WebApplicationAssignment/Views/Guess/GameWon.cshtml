@@ -1,0 +1,17 @@
+﻿
+@{
+    ViewData["Title"] = "GameWon";
+}
+
+<h3>GameWon</h3>
+
+<p>Congrats! You got the right number in @ViewBag.NumbGuess guesses!</p>
+<p> The right number was offcourse @ViewData["guess"]</p>
+<br />
+<hr />
+<form asp-action="Index" asp-controller="Guess" method="get">
+    <input type="submit" value="Go back to Guess" />
+</form>
+<form asp-action="Index" asp-controller="Home" method="get">
+    <input type="submit" value="Go back to Home" />
+</form>

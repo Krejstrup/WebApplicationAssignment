@@ -1,0 +1,33 @@
+﻿
+@{
+    ViewData["Title"] = "Guess a Number";
+}
+
+<h3>Time for a: Guess a number</h3>
+
+<p>I've picked a secret number (1-100), take a guess of this number</p>
+
+<form asp-action="Index" asp-controller="Guess" method="post">
+    <div class="input">
+        <label>Guess: </label>
+        <input type="number" min="1" max="100" id="guess" name="guess" placeholder="1-100">
+    </div>
+    <input type="submit" value="Guess" />
+</form>
+
+@if (ViewBag.guessOK != null)
+{
+    if (ViewBag.guessOK == "ok")
+    {
+        <p>Thank you: This value was @ViewBag.status</p>
+    }
+    else if (ViewBag.guessOK == "no")
+    {
+        <p>No, not a valid number!</p>
+    }
+    <p>The number guessed so far is: @ViewBag.NumbGuess. Latest guess was: @ViewBag.guess</p>
+
+}
+
+
+
